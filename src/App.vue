@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import HelloWorld from '@/components/HelloWorld.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div>
@@ -11,6 +9,8 @@ import HelloWorld from '@/components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
+  <el-button type="primary">test</el-button>
+  <el-button type="success"><i-ep-SuccessFilled />Success</el-button>
   <HelloWorld msg="Vite + Vue" />
 </template>
 
