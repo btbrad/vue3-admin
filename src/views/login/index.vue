@@ -13,10 +13,10 @@ const isRemember = ref(false)
 </script>
 
 <template>
-  <div class="w-screen h-screen bg-gray-100 flex justify-center items-center">
-    <div class="flex mx-auto bg-white rounded py-10">
-      <div class="w-[500px] box-border px-10">
-        <div class="font-bold mb-3 flex justify-center">
+  <div class="flex h-screen w-screen items-center justify-center bg-gray-100">
+    <div class="mx-auto flex rounded bg-white py-10">
+      <div class="box-border w-[500px] px-10">
+        <div class="mb-3 flex justify-center font-bold">
           <span>用户登录</span>
         </div>
         <el-form :model="formData">
@@ -30,7 +30,7 @@ const isRemember = ref(false)
             <el-checkbox v-model="isRemember" label="记住密码" size="large" />
           </el-form-item>
           <el-form-item>
-            <el-button class="w-full !h-[40px]" type="primary">登录</el-button>
+            <el-button class="!h-[40px] w-full" type="primary">登录</el-button>
           </el-form-item>
         </el-form>
       </div>
