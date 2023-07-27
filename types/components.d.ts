@@ -18,5 +18,6 @@ declare module 'vue' {
     IEpSuccessFilled: typeof import('~icons/ep/success-filled')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SvgIcon: typeof import('./../src/components/SvgIcon.vue')['default']
   }
 }
