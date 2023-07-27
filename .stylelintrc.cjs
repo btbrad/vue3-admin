@@ -34,5 +34,11 @@ module.exports = {
         ignoreAtRules: ['tailwind'],
       },
     ],
+    'property-no-unknown': [
+      true,
+      {
+        ignoreSelectors: [':export'],
+      },
+    ],
   },
 }
