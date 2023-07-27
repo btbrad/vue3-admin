@@ -39,8 +39,8 @@ const toggleShowPassword = () => (isShowPassword.value = !isShowPassword.value)
                 clearable
                 :type="isShowPassword ? 'text' : 'password'"
               />
-              <svg-icon v-if="isShowPassword" @click="toggleShowPassword" icon-class="eye_close" size="25px" />
-              <svg-icon v-else @click="toggleShowPassword" icon-class="eye_open" size="25px" />
+              <svg-icon v-if="isShowPassword" @click="toggleShowPassword" icon-class="eye_open" size="25px" />
+              <svg-icon v-else @click="toggleShowPassword" icon-class="eye_close" size="25px" />
             </div>
           </el-form-item>
           <el-form-item>
