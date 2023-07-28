@@ -9,7 +9,7 @@ const formData = reactive({
   username: '',
   password: '',
 })
-const isRemember = ref(false)
+
 const isShowPassword = ref(false)
 
 const toggleShowPassword = () => (isShowPassword.value = !isShowPassword.value)
@@ -42,9 +42,6 @@ const toggleShowPassword = () => (isShowPassword.value = !isShowPassword.value)
               <svg-icon v-if="isShowPassword" @click="toggleShowPassword" icon-class="eye_open" size="25px" />
               <svg-icon v-else @click="toggleShowPassword" icon-class="eye_close" size="25px" />
             </div>
-          </el-form-item>
-          <el-form-item>
-            <el-checkbox v-model="isRemember" label="记住密码" size="large" />
           </el-form-item>
           <el-form-item>
             <el-button class="!h-[40px] w-full" type="primary">登录</el-button>
