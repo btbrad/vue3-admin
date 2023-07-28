@@ -5,14 +5,35 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { FormInstance, FormRules } from 'element-plus'
+
 const formData = reactive({
   username: '',
   password: '',
 })
 
+const passwordValidator = (_rule: FormRules, value: string, callback: (params: unknown) => void) => {
+  if (value.length < 6) {
+    callback(new Error('密码不能少于6位'))
+  }
+}
+
+const rules = reactive({
+  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+  password: [
+    { required: true, message: '请输入密码', trigger: 'blur' },
+    { validator: passwordValidator, trigger: 'blur' },
+  ],
+})
+
 const isShowPassword = ref(false)
 
 const toggleShowPassword = () => (isShowPassword.value = !isShowPassword.value)
+
+const formRef = ref<FormInstance | null>(null)
+const handleLogin = async () => {
+  await formRef.value?.validate()
+}
 </script>
 
 <template>
@@ -22,7 +43,7 @@ const toggleShowPassword = () => (isShowPassword.value = !isShowPassword.value)
         <div class="mb-3 flex justify-center font-bold">
           <span>用户登录</span>
         </div>
-        <el-form :model="formData">
+        <el-form ref="formRef" :model="formData" :rules="rules">
           <el-form-item prop="username">
             <div class="flex w-full items-center border px-3 shadow-sm">
               <svg-icon icon-class="user" size="25px" />
@@ -39,12 +60,18 @@ const toggleShowPassword = () => (isShowPassword.value = !isShowPassword.value)
                 clearable
                 :type="isShowPassword ? 'text' : 'password'"
               />
-              <svg-icon v-if="isShowPassword" @click="toggleShowPassword" icon-class="eye_open" size="25px" />
-              <svg-icon v-else @click="toggleShowPassword" icon-class="eye_close" size="25px" />
+              <svg-icon
+                v-if="isShowPassword"
+                @click="toggleShowPassword"
+                class="cursor-pointer"
+                icon-class="eye_open"
+                size="25px"
+              />
+              <svg-icon v-else @click="toggleShowPassword" class="cursor-pointer" icon-class="eye_close" size="25px" />
             </div>
           </el-form-item>
           <el-form-item>
-            <el-button class="!h-[40px] w-full" type="primary">登录</el-button>
+            <el-button class="!h-[40px] w-full" type="primary" @click="handleLogin">登录</el-button>
           </el-form-item>
         </el-form>
       </div>
