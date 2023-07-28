@@ -13,6 +13,7 @@ import { useCounterStore } from '@/store/counter'
 const counterStore = useCounterStore()
 
 console.log(variables.testColor)
+console.log(import.meta.env.VITE_APP_TITLE)
 </script>
 
 <template>
