@@ -6,15 +6,21 @@ export default {
 
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'
+import { useUserStore } from '@/store/user'
+
+const userStore = useUserStore()
 
 const formData = reactive({
-  username: '',
-  password: '',
+  username: 'admin',
+  password: '123456',
 })
 
 const passwordValidator = (_rule: FormRules, value: string, callback: (params: unknown) => void) => {
   if (value.length < 6) {
     callback(new Error('密码不能少于6位'))
+  } else {
+    // @ts-expect-error no params
+    callback()
   }
 }
 
@@ -33,6 +39,7 @@ const toggleShowPassword = () => (isShowPassword.value = !isShowPassword.value)
 const formRef = ref<FormInstance | null>(null)
 const handleLogin = async () => {
   await formRef.value?.validate()
+  await userStore.login(formData)
 }
 </script>
 

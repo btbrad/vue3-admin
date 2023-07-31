@@ -26,9 +26,10 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   (response: AxiosResponse) => {
+    console.log(response)
     const { code, msg } = response.data
     // 登录成功
-    if (code === '00000') {
+    if (code === 200) {
       return response.data
     }
 

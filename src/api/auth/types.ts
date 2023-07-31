@@ -19,17 +19,7 @@ export interface LoginResult {
   /**
    * 访问token
    */
-  accessToken?: string
-  /**
-   * 过期时间(单位：毫秒)
-   */
-  expires?: number
-  /**
-   * 刷新token
-   */
-  refreshToken?: string
-  /**
-   * token 类型
-   */
-  tokenType?: string
+  token?: string
+  code: number
+  msg: string
 }

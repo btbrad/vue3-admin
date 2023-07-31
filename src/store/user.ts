@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
 import { loginApi } from '@/api/auth'
 import { LoginData } from '@/api/auth/types'
+import { setItem, getItem } from '@/utils/storage'
+import { TOKEN } from '@/constant/index'
 
 export const useUserStore = defineStore('user', () => {
-  const token = ref('')
+  const token = ref(getItem(TOKEN) || '')
 
   /**
    * 登录调用
@@ -15,8 +17,10 @@ export const useUserStore = defineStore('user', () => {
     return new Promise<void>((resolve, reject) => {
       loginApi(loginData)
         .then((response) => {
-          const { tokenType, accessToken } = response.data
-          token.value = tokenType + ' ' + accessToken // Bearer eyJhbGciOiJIUzI1NiJ9.xxx.xxx
+          // @ts-expect-error no error
+          const { token: accessToken } = response
+          token.value = accessToken as string
+          setItem(TOKEN, accessToken)
           resolve()
         })
         .catch((error) => {
