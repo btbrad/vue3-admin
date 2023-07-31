@@ -16,10 +16,5 @@ export interface LoginData {
  * 登录响应
  */
 export interface LoginResult {
-  /**
-   * 访问token
-   */
-  token?: string
-  code: number
-  msg: string
+  token: string
 }

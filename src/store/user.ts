@@ -17,10 +17,9 @@ export const useUserStore = defineStore('user', () => {
     return new Promise<void>((resolve, reject) => {
       loginApi(loginData)
         .then((response) => {
-          // @ts-expect-error no error
-          const { token: accessToken } = response
-          token.value = accessToken as string
-          setItem(TOKEN, accessToken)
+          const { data } = response
+          token.value = data.token
+          setItem(TOKEN, data.token)
           resolve()
         })
         .catch((error) => {

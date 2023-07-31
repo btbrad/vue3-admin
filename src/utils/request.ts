@@ -1,6 +1,9 @@
 import axios, { InternalAxiosRequestConfig, AxiosResponse } from 'axios'
 import { useUserStore } from '@/store/user'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import { removeAll } from '@/utils/storage'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 // 创建 axios 实例
 const service = axios.create({
@@ -26,31 +29,24 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   (response: AxiosResponse) => {
-    console.log(response)
     const { code, msg } = response.data
     // 登录成功
     if (code === 200) {
       return response.data
     }
-
     ElMessage.error(msg || '系统出错')
     return Promise.reject(new Error(msg || 'Error'))
   },
   (error: any) => {
-    if (error.response.data) {
-      const { code, msg } = error.response.data
-      // token 过期，跳转登录页
-      if (code === 'A0230') {
-        ElMessageBox.confirm('当前页面已失效，请重新登录', '提示', {
-          confirmButtonText: '确定',
-          type: 'warning',
-        }).then(() => {
-          localStorage.clear() // @vueuse/core 自动导入
-          window.location.href = '/'
-        })
-      } else {
-        ElMessage.error(msg || '系统出错')
-      }
+    if (error.response.status === 401) {
+      ElMessageBox.confirm('登录状态过期，请重新登录', '提示', {
+        confirmButtonText: '确定',
+        showCancelButton: false,
+        type: 'warning',
+      }).then(() => {
+        removeAll()
+        router.push('/login')
+      })
     }
     return Promise.reject(error.message)
   }
