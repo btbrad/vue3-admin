@@ -7,7 +7,9 @@ export default {
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'
 import { useUserStore } from '@/store/user'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const userStore = useUserStore()
 
 const formData = reactive({
@@ -40,6 +42,7 @@ const formRef = ref<FormInstance | null>(null)
 const handleLogin = async () => {
   await formRef.value?.validate()
   await userStore.login(formData)
+  router.push('/')
 }
 </script>
 
