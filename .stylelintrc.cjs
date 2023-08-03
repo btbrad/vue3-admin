@@ -40,5 +40,7 @@ module.exports = {
         ignoreSelectors: [':export'],
       },
     ],
+    'import-notation': null,
+    'function-url-quotes': null,
   },
 }

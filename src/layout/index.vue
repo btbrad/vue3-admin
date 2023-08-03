@@ -28,7 +28,7 @@ console.log(variables)
 </template>
 
 <style lang="scss" scoped>
-@import url('@/styles/mixin');
+@import '@/styles/mixin';
 
 .app-wrapper {
   @include clearfix;
