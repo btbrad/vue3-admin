@@ -15,3 +15,13 @@ export function loginApi(data: LoginData): AxiosPromise<LoginResult> {
     data: data,
   })
 }
+
+/**
+ * 获取用户信息
+ */
+export function getUserInfo() {
+  return request({
+    url: '/user/info',
+    method: 'get',
+  })
+}
