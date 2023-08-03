@@ -4,8 +4,10 @@ export default {
 }
 </script>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Layout from '@/layout/index.vue'
+</script>
 
 <template>
-  <div>首页</div>
+  <Layout />
 </template>
