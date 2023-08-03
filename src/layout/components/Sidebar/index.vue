@@ -9,5 +9,12 @@ import { defineComponent } from 'vue'
 </script>
 
 <template>
-  <div>SideBar</div>
+  <div class="sidebar-container">SideBar</div>
 </template>
+
+<style lang="scss" scoped>
+.sidebar-container {
+  width: $sidebarWidth;
+  height: 100%;
+}
+</style>

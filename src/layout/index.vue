@@ -15,7 +15,7 @@ console.log(variables)
 <template>
   <div class="app-wrapper">
     <!-- 左侧menu -->
-    <sidebar />
+    <sidebar :style="{ backgroundColor: variables.menuBg }" />
     <div class="main-container">
       <div class="fix-header">
         <!-- 顶部 -->
@@ -34,12 +34,22 @@ console.log(variables)
   @include clearfix;
   @include relative;
 
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+
   .fix-header {
     position: fixed;
     top: 0;
     right: 0;
     z-index: 10;
     width: calc(100vw - #{$sidebarWidth});
+    height: 60px;
+  }
+
+  .main-container {
+    flex: 1;
+    padding-top: 60px;
   }
 }
 </style>
