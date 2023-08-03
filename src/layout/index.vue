@@ -8,7 +8,7 @@ export default defineComponent({
 import Sidebar from './components/Sidebar/index.vue'
 import Navbar from './components/NavBar.vue'
 import AppMain from './components/AppMain.vue'
-import variables from '@/styles/variables.scss'
+import variables from '@/styles/variables.module.scss'
 console.log(variables)
 </script>
 

@@ -1,4 +1,11 @@
 // 导出 variables.scss 文件的变量
 :export {
-  testColor: $test-color;
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sidebarWidth: $sidebarWidth;
 }
