@@ -1,5 +1,5 @@
 {
   "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "userInfo": { "name": "admin" }
+  "userInfo": { "code": 200, "msg": "成功", "data": { "name": "admin" } }
 }

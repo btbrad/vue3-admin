@@ -1,11 +1,13 @@
 import { defineStore } from 'pinia'
-import { loginApi } from '@/api/auth'
+import { loginApi, userInfoApi } from '@/api/auth'
 import { LoginData } from '@/api/auth/types'
 import { setItem, getItem } from '@/utils/storage'
 import { TOKEN } from '@/constant/index'
 
 export const useUserStore = defineStore('user', () => {
   const token = ref(getItem(TOKEN) || '')
+
+  const userInfo = ref({})
 
   /**
    * 登录调用
@@ -28,5 +30,21 @@ export const useUserStore = defineStore('user', () => {
     })
   }
 
-  return { token, login }
+  /**
+   * 获取用户信息
+   */
+  const getUserInfo = () => {
+    return new Promise<void>((resolve, reject) => {
+      userInfoApi()
+        .then((res) => {
+          userInfo.value = res.data
+          resolve()
+        })
+        .then((error) => {
+          reject(error)
+        })
+    })
+  }
+
+  return { token, login, userInfo, getUserInfo }
 })

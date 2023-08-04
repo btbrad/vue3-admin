@@ -19,7 +19,7 @@ export function loginApi(data: LoginData): AxiosPromise<LoginResult> {
 /**
  * 获取用户信息
  */
-export function getUserInfo() {
+export function userInfoApi(): AxiosPromise {
   return request({
     url: '/user/info',
     method: 'get',

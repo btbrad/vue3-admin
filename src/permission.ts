@@ -11,6 +11,9 @@ router.beforeEach((to, from, next) => {
     if (to.path === '/login') {
       next('/')
     } else {
+      if (!Object.keys(userStore.userInfo).length) {
+        userStore.getUserInfo()
+      }
       next()
     }
   } else {

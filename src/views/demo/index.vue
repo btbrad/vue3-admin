@@ -19,14 +19,7 @@ console.log(import.meta.env.VITE_APP_TITLE)
 <template>
   <el-button type="success"><i-ep-SuccessFilled />ElementPlus图标</el-button>
   <el-button type="info"><svg-icon icon-class="user" />本地svg图标</el-button>
-  <p class="red">sass红色文字</p>
   <p>count: {{ counterStore.count }}</p>
   <p>double count: {{ counterStore.double }}</p>
   <el-button type="primary" @click="counterStore.increment">+</el-button>
 </template>
-
-<style lang="scss" scoped>
-.red {
-  color: $test-color;
-}
-</style>
