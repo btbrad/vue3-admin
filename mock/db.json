@@ -1,5 +1,12 @@
 {
   "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "userInfo": { "code": 200, "msg": "成功", "data": { "name": "admin" } }
+  "userInfo": {
+    "code": 200,
+    "msg": "成功",
+    "data": {
+      "name": "admin",
+      "avatar": "https://img.cehca.com/uploadimg/image/20191218/20191218114705_79755.jpg"
+    }
+  }
 }

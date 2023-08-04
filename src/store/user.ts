@@ -3,11 +3,12 @@ import { loginApi, userInfoApi } from '@/api/auth'
 import { LoginData } from '@/api/auth/types'
 import { setItem, getItem } from '@/utils/storage'
 import { TOKEN } from '@/constant/index'
+import type { UserInfo } from './types'
 
 export const useUserStore = defineStore('user', () => {
   const token = ref(getItem(TOKEN) || '')
 
-  const userInfo = ref({})
+  const userInfo = ref<UserInfo>({})
 
   /**
    * 登录调用
