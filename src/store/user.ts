@@ -1,9 +1,10 @@
 import { defineStore } from 'pinia'
 import { loginApi, userInfoApi } from '@/api/auth'
 import { LoginData } from '@/api/auth/types'
-import { setItem, getItem } from '@/utils/storage'
+import { setItem, getItem, removeAll } from '@/utils/storage'
 import { TOKEN } from '@/constant/index'
 import type { UserInfo } from './types'
+import router from '@/router'
 
 export const useUserStore = defineStore('user', () => {
   const token = ref(getItem(TOKEN) || '')
@@ -47,5 +48,18 @@ export const useUserStore = defineStore('user', () => {
     })
   }
 
-  return { token, login, userInfo, getUserInfo }
+  /**
+   * 退出登录
+   */
+  const logout = () => {
+    return new Promise<void>((resolve, reject) => {
+      userInfo.value = {}
+      token.value = ''
+      removeAll()
+      router.push('/login')
+      resolve()
+    })
+  }
+
+  return { token, login, userInfo, getUserInfo, logout }
 })
