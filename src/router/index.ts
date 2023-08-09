@@ -1,26 +1,30 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import Home from '@/views/home/index.vue'
+import Layout from '@/layout/index.vue'
 import Login from '@/views/login/index.vue'
 
-const routes = [
+const publicRoutes = [
   {
     path: '/',
-    component: Home,
+    redirect: '/demo',
+    component: Layout,
+    children: [
+      {
+        path: '/demo',
+        name: 'demo',
+        component: () => import('@/views/demo/index.vue'),
+      },
+    ],
   },
   {
     path: '/login',
     component: Login,
   },
-  {
-    path: '/demo',
-    component: () => import('@/views/demo/index.vue'),
-  },
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
+  routes: publicRoutes,
 })
 
 export default router
