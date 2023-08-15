@@ -10,7 +10,7 @@ const privateRoutes = [
     redirect: '/user/list',
     meta: {
       title: ' 用户管理',
-      icon: 'personnel',
+      icon: 'user',
     },
     children: [
       {
@@ -18,7 +18,7 @@ const privateRoutes = [
         component: () => import('@/views/user/userList/index.vue'),
         meta: {
           title: '用户列表',
-          icon: 'personnel-manage',
+          icon: 'user-list',
         },
       },
     ],
@@ -29,7 +29,7 @@ const privateRoutes = [
     redirect: '/article/list',
     meta: {
       title: '文章',
-      icon: 'i-ep-Document',
+      icon: 'article',
     },
     children: [
       {
@@ -37,7 +37,7 @@ const privateRoutes = [
         component: () => import('@/views/article/articleList/index.vue'),
         meta: {
           title: '文章列表',
-          icon: 'i-ep-Document',
+          icon: 'article-list',
         },
       },
     ],
@@ -51,7 +51,7 @@ const publicRoutes = [
     component: Layout,
     meta: {
       title: '首页',
-      icon: 'i-ep-HomeFilled',
+      icon: 'home',
     },
     children: [
       {

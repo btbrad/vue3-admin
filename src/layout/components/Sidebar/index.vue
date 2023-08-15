@@ -6,12 +6,12 @@ export default defineComponent({
 
 <script lang="ts" setup>
 import { defineComponent } from 'vue'
-import SiderMenu from './SiderMenu.vue'
+import SideMenu from './SideMenu.vue'
 </script>
 
 <template>
   <div class="sidebar-container">
-    <sider-menu />
+    <side-menu />
   </div>
 </template>
 
