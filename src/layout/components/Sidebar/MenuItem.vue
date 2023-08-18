@@ -13,6 +13,8 @@ defineProps({
 
 <template>
   <!-- svg icon -->
-  <svg-icon :icon-class="icon" />
+  <el-icon>
+    <svg-icon :icon-class="icon" />
+  </el-icon>
   <span>{{ title }}</span>
 </template>

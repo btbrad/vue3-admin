@@ -22,6 +22,7 @@ declare module 'vue' {
     ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
     ElSubmenu: typeof import('element-plus/es')['ElSubmenu']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    ExpandControl: typeof import('./../src/components/ExpandControl/index.vue')['default']
     HelloWorld: typeof import('./../src/components/HelloWorld.vue')['default']
     IEpDocument: typeof import('~icons/ep/document')['default']
     IEpEdit: typeof import('~icons/ep/edit')['default']

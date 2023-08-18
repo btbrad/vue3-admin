@@ -9,11 +9,14 @@ import Sidebar from './components/Sidebar/index.vue'
 import Navbar from './components/NavBar.vue'
 import AppMain from './components/AppMain.vue'
 import variables from '@/styles/variables.module.scss'
+import { useAppStore } from '@/store/app'
+
+const appStore = useAppStore()
 console.log(variables)
 </script>
 
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper" :class="[appStore.sidebarExpand ? 'sidebar-expand' : 'sidebar-collapsed']">
     <!-- 左侧menu -->
     <sidebar :style="{ backgroundColor: variables.menuBg }" />
     <div class="main-container">
@@ -45,11 +48,18 @@ console.log(variables)
     z-index: 10;
     width: calc(100vw - #{$sidebarWidth});
     height: 60px;
+    transition: width 0.6s;
   }
 
   .main-container {
     flex: 1;
     padding-top: 60px;
+  }
+
+  &.sidebar-collapsed {
+    .fix-header {
+      width: calc(100vw - #{$sidebarCollapsedWidth});
+    }
   }
 }
 </style>

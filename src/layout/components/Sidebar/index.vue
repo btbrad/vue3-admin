@@ -6,11 +6,14 @@ export default defineComponent({
 
 <script lang="ts" setup>
 import { defineComponent } from 'vue'
+import { useAppStore } from '@/store/app'
 import SideMenu from './SideMenu.vue'
+
+const appStore = useAppStore()
 </script>
 
 <template>
-  <div class="sidebar-container">
+  <div class="sidebar-container" :class="{ collapsed: !appStore.sidebarExpand }">
     <side-menu />
   </div>
 </template>
@@ -19,5 +22,10 @@ import SideMenu from './SideMenu.vue'
 .sidebar-container {
   width: $sidebarWidth;
   height: 100%;
+  transition: width 0.6s;
+
+  &.collapsed {
+    width: $sidebarCollapsedWidth;
+  }
 }
 </style>

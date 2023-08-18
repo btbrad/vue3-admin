@@ -8,7 +8,10 @@ const handleLogout = () => {
 </script>
 
 <template>
-  <div class="flex h-full w-full justify-end border border-gray-400 p-3">
+  <div class="flex h-full w-full justify-between border border-gray-400 p-3">
+    <div>
+      <expand-control />
+    </div>
     <el-dropdown>
       <el-avatar shape="square" :size="35" :src="userStore.userInfo.avatar" />
       <template #dropdown>
