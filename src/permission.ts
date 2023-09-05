@@ -7,7 +7,6 @@ router.beforeEach((to, from, next) => {
   const userStore = useUserStore()
   if (userStore.token) {
     // 已登录
-    console.log(to.path)
     if (to.path === '/login') {
       next('/')
     } else {

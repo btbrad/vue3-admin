@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import { useUserStore } from '@/store/user'
+import BreadcrumbIndex from '@/components/Breadcrumb/index.vue'
+
 const userStore = useUserStore()
 
 const handleLogout = () => {
@@ -9,8 +11,9 @@ const handleLogout = () => {
 
 <template>
   <div class="flex h-full w-full justify-between border border-gray-400 p-3">
-    <div>
-      <expand-control />
+    <div class="flex items-center justify-start">
+      <expand-control class="mr-3" />
+      <breadcrumb-index />
     </div>
     <el-dropdown>
       <el-avatar shape="square" :size="35" :src="userStore.userInfo.avatar" />

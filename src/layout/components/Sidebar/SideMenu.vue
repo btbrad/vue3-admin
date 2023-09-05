@@ -8,13 +8,11 @@ import { useAppStore } from '@/store/app'
 const appStore = useAppStore()
 
 const router = useRouter()
-console.log(router.getRoutes())
 
 const routes = computed(() => {
   const cleanRoutes = filterRoutes(router.getRoutes())
   return generateMenus(cleanRoutes)
 })
-console.log(111, routes.value)
 
 const route = useRoute()
 const activeMenu = computed(() => {
