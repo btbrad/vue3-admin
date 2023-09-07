@@ -22,4 +22,6 @@ console.log(import.meta.env.VITE_APP_TITLE)
   <p>count: {{ counterStore.count }}</p>
   <p>double count: {{ counterStore.double }}</p>
   <el-button type="primary" @click="counterStore.increment">+</el-button>
+  <p>国际化: {{ $t('msg') }}</p>
+  <el-pagination :page-sizes="[100, 200, 300, 400]" layout="total, sizes, prev, pager, next, jumper" :total="400" />
 </template>
